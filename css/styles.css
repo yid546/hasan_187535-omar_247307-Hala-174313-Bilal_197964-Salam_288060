@@ -1,0 +1,168 @@
+/*
+===================================================
+BWP401: دليل فعاليات بصرى الشام - ملف الأنماط المخصص (styles.css)
+الأنماط مخصصة لدعم الوضع الداكن (Dark Mode) وتستخدم ألوان أثرية وتراثية
+===================================================
+*/
+
+/* ----------------------------------
+    1. الألوان الأساسية والمتغيرات (الأثرية)
+    ---------------------------------- */
+
+:root {
+    /* الألوان الأساسية - الوضع الفاتح (Light Mode) */
+    --primary-color: #8D6E63; /* بني ترابي / لون الطين (الأحجار القديمة) */
+    --secondary-accent: #FFC107; /* أصفر ذهبي/برونزي (لون التراث) */
+    --bg-light: #F5F5F5; /* خلفية فاتحة جداً (بيج خفيف) */
+    --text-primary: #3E2723; /* بني داكن جداً للنصوص */
+    --text-secondary: #795548; /* بني متوسط للنصوص الثانوية */
+}
+
+[data-bs-theme="dark"] {
+    /* الألوان الأساسية - الوضع الداكن (Dark Mode) */
+    --primary-color: #A1887F; /* بني فاتح/صدئ لتعويض اللون الداكن */
+    --secondary-accent: #FFEB3B; /* أصفر فاتح ساطع */
+    --secondary-color: #263238; /* خلفية داكنة جداً (رمادي أزرق) */
+    --bg-light: #263238; /* خلفية داكنة */
+    --text-primary: #ECEFF1; /* نص أبيض فاتح */
+    --text-secondary: #B0BEC5; /* نص رمادي فاتح */
+}
+
+body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    direction: rtl; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    /* استخدام اللون الأساسي الجديد (البني الترابي) */
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+/* ----------------------------------
+    2. تخصيص الأجزاء
+    ---------------------------------- */
+
+.hero-section {
+    background-color: var(--bg-light) !important;
+    /* استخدام اللون الثانوي للحدود (الذهبي) */
+    border-bottom: 3px solid var(--secondary-accent);
+}
+
+.hero-section h1 {
+    color: var(--primary-color) !important;
+}
+
+/* ----------------------------------
+    3. تخصيص شريط التنقل (Navbar)
+    ---------------------------------- */
+
+#mainNavbar .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#mainNavbar .nav-link:hover,
+#mainNavbar .nav-link.active {
+    /* استخدام اللون الأساسي الجديد (البني الترابي) */
+    color: var(--primary-color) !important;
+}
+
+/* تم تعديل هذا الجزء ليعمل مع نظام الألوان الجديد */
+.text-dark {
+    color: var(--text-primary) !important; /* النص الأسود/البني الداكن/الأبيض العادي */
+}
+/* تعديل النص الأصفر / التحذيري ليتناسب مع الألوان الجديدة في ملفات HTML */
+.text-warning {
+    color: var(--secondary-accent) !important; 
+}
+.btn-warning {
+    background-color: var(--secondary-accent) !important;
+    border-color: var(--secondary-accent) !important;
+    /* تأكد من أن النص على الزر الأصفر داكن دائماً لضمان القراءة */
+    color: #000000 !important; 
+}
+
+/* إصلاح التداخل في زر Toggle */
+.form-check-input {
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#toggleLabel {
+    /* استخدام لون التمييز الثانوي (الذهبي) لزر التبديل */
+    color: var(--secondary-accent) !important; 
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1000;
+    padding-left: 0.5rem; 
+    margin-right: 50px;
+}
+
+/* ----------------------------------
+    4. تخصيص الأزرار (Buttons)
+    ---------------------------------- */
+
+.btn-category-pill {
+    /* استخدام لون التمييز الثانوي (الذهبي) لـ Pill */
+    color: var(--secondary-accent);
+    border: 1px solid var(--secondary-accent);
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-category-pill:hover {
+    /* الخلفية تصبح صفراء/ذهبية مع نص داكن */
+    background-color: var(--secondary-accent);
+    color: #000000; /* الأسود أو لون داكن دائم */
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------
+    5. تخصيص البطاقات (Cards)
+    ---------------------------------- */
+
+.card {
+    background-color: var(--bg-light); 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--text-secondary); 
+}
+
+.card .card-footer {
+    background-color: var(--bg-light);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------
+    6. التذييل (Footer)
+    ---------------------------------- */
+
+.social-links-custom a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links-custom a:hover {
+    /* استخدام اللون الأساسي الجديد (البني الترابي) */
+    color: var(--primary-color) !important; 
+    transform: translateY(-2px);
+}
